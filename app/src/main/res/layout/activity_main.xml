@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal_200"
+    tools:context=".presentation.activity.main.MainActivity">
+
+    <ImageView
+        android:id="@+id/pokemon_title"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:src="@drawable/pokemon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ViewFlipper
+        android:id="@+id/layout_pokemon_flipper"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="200dp"
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="@id/pokemon_stage"
+        app:layout_constraintTop_toBottomOf="@id/pokemon_title">
+
+        <include
+            android:id="@+id/layout_pokemon"
+            layout="@layout/layout_pokemon_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include
+            android:id="@+id/layout_pokemon_loading"
+            layout="@layout/layout_pokemon_list_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </ViewFlipper>
+
+    <ImageView
+        android:id="@+id/pokemon_stage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="56dp"
+        android:elevation="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pokemon_stage"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/container_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="32dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/search_icon" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/white"
+            android:hint="Search Pokemon"
+            android:inputType="text"
+            android:paddingVertical="12dp"
+            android:textAppearance="?attr/textAppearanceButton" />
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
